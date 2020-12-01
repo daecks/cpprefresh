@@ -27,5 +27,14 @@ int main()
     int thesum = accumulate(begin(v), end(v), 0, [](int i, int total){if(i%2 == 0) return total + i ; return total;});
     cout << "Sum of all even numbers: " << thesum << endl;
     
-    //TODO: for_each examples
+    // For_each is like a ranged for, but can be used over part of a collection (not whole, as is implied by ranged-for loops)
+    // This will set the elements after the first "3", and set them to zero (hence, pass by reference) 
+    auto findfirstthree = find(begin(v), end(v), 3);
+    for_each(findfirstthree, end(v), [](int& elem){ elem = 0; });
+
+    for(auto i:v){
+        cout << i << " ";
+    }
+    cout << endl;
+
 }
