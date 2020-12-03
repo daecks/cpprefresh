@@ -2,7 +2,8 @@
 
 using namespace std;
 
-struct Node{
+class Node{
+    public:
     int data;
     Node *leftChild;
     Node *rightChild;
@@ -25,7 +26,10 @@ void addNode(Node *&root, int data)
         return;
     }
 
-    // For BST, if the data is less than the parent, it goes on the left branch, else right
+    // For BST, if the data is less than the parent, it goes on the left branch.
+    // If it's more than the parent, it goes on the right branch.
+    // If it was the same, we could store a count of the number of that element for the node,
+    // but our Node doesn't currently support that.
     if (data < root->data)
     {
         if (root->leftChild == nullptr)
@@ -79,7 +83,9 @@ int main(){
     addNode(root, 2);
     addNode(root, 3);
     addNode(root, 6);
+    addNode(root, 10);
     addNode(root, 12);
+    addNode(root, 14);
     addNode(root, 0);
 
     int searchkey = 1;
@@ -102,11 +108,10 @@ int main(){
     findFloorCeil(root, searchkey, floor, ceil);
     cout << "searchkey: " << searchkey << ", floor: " << floor << ", ceil: " << ceil << endl;
 
-    searchkey = 7;
+    searchkey = 11;
     root = top;
     findFloorCeil(root, searchkey, floor, ceil);
     cout << "searchkey: " << searchkey << ", floor: " << floor << ", ceil: " << ceil << endl;
 
     return 0;
-
 }
