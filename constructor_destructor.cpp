@@ -6,7 +6,14 @@ using namespace std;
 class B{
     public:
     B(){ cout << "B constructor\n";
-   //     throw invalid_argument("42"); 
+        try
+        {
+            throw invalid_argument("42");
+        }
+        catch (const invalid_argument &e)
+        {
+            cout << e.what() << endl;
+        }
     }
     ~B() {cout << "B destructor\n";}
 };
