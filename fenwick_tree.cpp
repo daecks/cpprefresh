@@ -45,16 +45,19 @@ public:
 fenwick::fenwick(vector<int>& input):input(input){
     
     // init fenwick tree in O(n) time.
+    // First step: create a fenwick array one element larger than the input.
+    // The fenwick array index is offset by one
     input_size = input.size();
     fenwick_tree.resize(input_size+1);
     fenwick_tree[1] = input[0];
 
     // Intermediate step: init fenwick tree with cumulative sum
+    auto init_fenwick_tree = [&](){};
     for(int i = 1; i<input_size; i++){
         fenwick_tree[i+1] = fenwick_tree[i] + input[i];
     }
 
-    // Remove the value of the parent node from the given node
+    // From each node, remove the value of the parent node
     for(int i = input_size; i > 0; i--){
         int parent = i - (i & -i);
         if(parent >= 0){
