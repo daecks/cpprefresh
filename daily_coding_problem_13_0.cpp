@@ -12,7 +12,7 @@ int coin_ways(int cent_total){
 
 int coin_ways_cached(int cent_total, std::unordered_map<int, int> &cache){
 
-    if(cache.count(cent_total) > 0){
+    if(cache.count(cent_total) > 0){ // C++20 has a 'contains' https://en.cppreference.com/w/cpp/container/map/contains
         return cache[cent_total];
     }
 
@@ -27,10 +27,10 @@ int main(){
 
     int coins_result;
     auto microseconds = TimeFunc([&](){ coins_result = coin_ways(70); });
-    std::cout << "Uncached impl result: " << coins_result << " with time (millis): " << microseconds << '\n';
+    std::cout << "Uncached impl result: " << coins_result << " took time (millis): " << microseconds << '\n';
  
     std::unordered_map<int, int> cache;
     microseconds = TimeFunc([&](){ coins_result = coin_ways_cached(70, cache); });
-    std::cout << "Cached impl result: " << coins_result << " with time (millis): " << microseconds << '\n';
+    std::cout << "Cached impl result: " << coins_result << " took time (millis): " << microseconds << '\n';
 
 }
