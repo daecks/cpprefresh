@@ -18,8 +18,7 @@ int staircase(int total_stairs, std::unordered_map<int, int> &cache){
 int main(){
 
     std::unordered_map<int, int> cache;
-    std::cout <<  "Total number of permutations: " <<  staircase(4, cache) << '\n';
-
+    std::cout <<  "Total number of permutations: " <<  staircase(5, cache) << '\n';
     // Should be 5 permutations:
     // 1, 1, 1, 1
     // 1, 1, 2
