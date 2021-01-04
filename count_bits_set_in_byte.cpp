@@ -1,4 +1,4 @@
-// Count bits set in a passed-in value 
+// Count bits set in a passed-in value, using a templated method 
 #include <iostream>
 
 template <typename T>
