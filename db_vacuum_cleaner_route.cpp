@@ -39,4 +39,5 @@ int main(){
     assert(vacuum_back_at_start("LLR") == false);
     assert(vacuum_back_at_start("UD") == true);
     assert(vacuum_back_at_start("UDD") == false);
+    assert(vacuum_back_at_start("LLRRRUUDDDUL") == true);
 }

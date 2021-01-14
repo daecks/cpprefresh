@@ -20,8 +20,13 @@ int main(){
         // Creation of a unique_ptr
         unique_ptr<A> test_unique_ptr = make_unique<A>();
         test_unique_ptr->do_something("unique");
+        cout << "Address: " << test_unique_ptr.get() << endl;
         // We can't assign it to something else (the next line fails)
         //unique_ptr<A> test_ptr_2 = test_ptr;
+        // However, we can transfer ownership:
+        unique_ptr<A> moved_unique_ptr{move(test_unique_ptr)};
+        cout << "Address old: " << test_unique_ptr.get() << endl;
+        cout << "Address moved: " << moved_unique_ptr.get() << endl;
     }
         // Creation of a shared_ptr
         shared_ptr<A> test_shared_ptr = make_shared<A>();
