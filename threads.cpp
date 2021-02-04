@@ -8,18 +8,18 @@ void test_function(){
 
     using namespace std::chrono_literals;
     while(!testing_completed){
-        std::cout << "Running test in thread" << std::this_thread::get_id << '\n';
+        std::cout << "Running test in thread " << std::this_thread::get_id() << '\n';
         std::this_thread::sleep_for(500ms);
     }
 
 }
 
 int main(){
-    std::cout << "In main thread" << std::this_thread::get_id << '\n';
+    std::cout << "In main thread " << std::this_thread::get_id() << '\n';
 
     std::thread test_thread(test_function);
 
-    // This holds the current thread
+    // Wait for input, blocking the current thread
     std::cin.get();
     testing_completed = true;
 

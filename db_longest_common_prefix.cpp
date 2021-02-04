@@ -5,7 +5,6 @@
 #include <cassert>
 #include <iostream>
 
-
 using namespace std;
 
 string longest_common_prefix(vector<string> strings_list){
